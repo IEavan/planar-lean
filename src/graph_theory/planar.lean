@@ -1,5 +1,5 @@
 import tactic
-import graph_theory.minor graph_theory.product analysis.complex.basic
+import graph_theory.minor graph_theory.product
 
 namespace simple_graph
 
@@ -42,8 +42,9 @@ lemma connected_plane : connected plane :=
 
 end plane
 
+def is_planar (G : simple_graph V) : Prop := G.embeds_into plane ∧ G.connected
+
 def K5 := complete_graph (finset.range 5)
 def K33 := complete_bipartite_graph (finset.range 3) (finset.range 3)
 
--- theorem kuratowski [fintype V] : G ≼ plane ↔ K5 ⋠ G ∧ K33 ⋠ G
 end simple_graph
